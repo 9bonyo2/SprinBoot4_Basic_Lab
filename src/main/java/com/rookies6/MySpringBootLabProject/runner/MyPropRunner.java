@@ -38,4 +38,6 @@ public class MyPropRunner implements ApplicationRunner {
         logger.info("MyPropProperties getUsername() = {}", properties.getUsername());
         logger.info("MyPropProperties getPort() = {}", properties.getPort());
     }
+
+
 }
