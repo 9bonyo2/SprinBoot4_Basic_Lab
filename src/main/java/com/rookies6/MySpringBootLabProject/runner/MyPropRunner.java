@@ -30,7 +30,7 @@ public class MyPropRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        logger.info("Logger 구현체 클래스명 {}", logger.getClass().getName());
+        logger.info("Logger 구현체 클래스명 {}", logger.getClass().getName());
 //        logger.info("MyRunner run() 호출됨!!");
 //        logger.info("UserName = {}", username);
 //        logger.info("port = {}", port);
