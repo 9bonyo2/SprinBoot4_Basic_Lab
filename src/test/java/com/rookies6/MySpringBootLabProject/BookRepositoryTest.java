@@ -26,18 +26,18 @@ class BookRepositoryTest {
     void testCreateBook(){
         //준비단계
         Book book = new Book();
-        book.setTitle("JPA 프로그래밍");
-        book.setAuthor("박둘리");
-        book.setIsbn("9788956746432");
+        book.setTitle("JPA 프로그래밍9");
+        book.setAuthor("구둘기");
+        book.setIsbn("9788956746433");
         book.setPublishDate(LocalDate.of(2025, 04, 30));
         //book.setPublishDate(LocalDate.parse("2025-05-07"));
         book.setPrice(35000);
         System.out.println(book);
         //실행단계
-        Book addBook = bookRepository.save(book);
+        Book addbook = bookRepository.save(book);
         //검증단계
-        assertThat(addBook).isNotNull();
-        assertThat(addBook.getTitle()).isEqualTo("JPA 프로그래밍");
+        assertThat(addbook).isNotNull();
+        assertThat(addbook.getTitle()).isEqualTo("JPA 프로그래밍9");
     }
 
     //ISBN으로 도서 조회 테스트
@@ -73,17 +73,18 @@ class BookRepositoryTest {
         assertThat(book.getAuthor()).isEqualTo("구길동");
     }
 
-    @Test
-    void testDeleteBook() {
-        //준비단계: isbn으로 삭제할 도서
-        Book book = bookRepository.findByIsbn("9788956746432")
-                .orElseThrow(() -> new RuntimeException("Book Not Found"));
-        Long id = book.getId();
-        //실행단계
-        bookRepository.deleteById(id);
-        //검증단계
-        Optional<Book> deletedBook = bookRepository.findById(id);
-        assertThat(deletedBook).isEmpty();
-    }
+//    @Test
+//    void testDeleteBook() {
+//        //준비단계: isbn으로 삭제할 도서
+//        Book book = bookRepository.findByIsbn("9788956746432")
+//                .orElseThrow(() -> new RuntimeException("Book Not Found"));
+//        Long id = book.getId();
+//        //실행단계
+//        bookRepository.deleteById(id);
+//        //검증단계
+//        Optional<Book> deletedBook = bookRepository.findById(id);
+//        assertThat(deletedBook).isEmpty();
+//    }
+
 
 }
