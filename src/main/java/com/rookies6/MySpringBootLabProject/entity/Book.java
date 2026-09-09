@@ -1,13 +1,15 @@
 package com.rookies6.MySpringBootLabProject.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name="books")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter @Setter
 public class Book {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
