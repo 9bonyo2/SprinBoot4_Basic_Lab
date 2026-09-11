@@ -109,4 +109,49 @@ public class BookDTO {
         private String coverImageUrl;
         private String edition;
     }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class PatchRequest {
+        @Size(max = 100, message = "Book title cannot exceed 100 characters")
+        private String title;
+
+        @Size(max = 50, message = "Book author cannot exceed 50 characters")
+        private String author;
+
+        @Pattern(regexp = "\\d{10}|\\d{13}", message = "ISBN must be 10 or 13 digits")
+        private String isbn;
+
+        @PositiveOrZero(message = "Book price cannot be negative")
+        private Integer price;
+
+        @PastOrPresent(message = "Book publishDate cannot be in the future")
+        private LocalDate publishDate;
+
+        @Valid
+        private BookDetailPatchRequest detailRequest;
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class BookDetailPatchRequest {
+        @Size(max = 1000, message = "Description cannot exceed 1000 characters")
+        private String description;
+
+        private String language;
+
+        @PositiveOrZero(message = "Page count cannot be negative")
+        private Integer pageCount;
+
+        private String publisher;
+
+        private String coverImageUrl;
+
+        private String edition;
+    }
+
 }
